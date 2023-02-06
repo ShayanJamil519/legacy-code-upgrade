@@ -16,9 +16,12 @@ class WrapperClass : public LegacyClass {
 
     // 2) Create a new method with the same name and signature as the old method
     int oldMethod(int a, int b) {
+        // 3) Call the old method from the new method
+        int result = oldMethodWrapped(a, b);
+
         // 4) Put the new logic before/after the other method call
         std::cout << "Before call to wrapped method" << std::endl;
-        int result = oldMethodWrapped(a, b);
+        result = oldMethodWrapped(a, b);
         std::cout << "After call to wrapped method" << std::endl;
         return result;
     }
